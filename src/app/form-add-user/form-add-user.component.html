@@ -1,0 +1,17 @@
+
+  este es el form para añadir un usuario
+
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="First name" formControlName="name" #name/>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Phone" formControlName="phone" #phone>
+      </div>
+      <div class="col">
+      <input type="date" class="form-control" name="fecha" placeholder="Fecha de nacimiento" #birthdate>
+    </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addUser(name.value, phone.value, birthdate.value)">Add usser</button>
+  </form>
