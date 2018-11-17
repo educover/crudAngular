@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { List } from './list.interface';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'app';
-  private lists: Array < List >;
 
   constructor(){
   }

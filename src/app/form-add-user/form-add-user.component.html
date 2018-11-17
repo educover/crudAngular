@@ -10,8 +10,11 @@
         <input type="text" class="form-control" placeholder="Phone" formControlName="phone" #phone>
       </div>
       <div class="col">
+          <input type="text" class="form-control" name="direccion" placeholder="Direccion" #address>
+        </div>
+      <div class="col">
       <input type="date" class="form-control" name="fecha" placeholder="Fecha de nacimiento" #birthdate>
     </div>
     </div>
-    <button type="button" class="btn btn-primary" (click)="addUser(name.value, phone.value, birthdate.value)">Add usser</button>
+    <button type="button" class="btn btn-primary" (click)="addUser(name.value, phone.value, address.value, birthdate.value)">Add usser</button>
   </form>
