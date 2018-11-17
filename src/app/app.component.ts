@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { List } from './list.interface';
+
 
 @Component({
   selector: 'app-root',
