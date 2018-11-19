@@ -10,8 +10,13 @@ import { myList } from '../myservice.service';
   templateUrl: './form-add-user.component.html',
   styleUrls: ['./form-add-user.component.css']
 })
+
+
 export class FormAddUserComponent implements OnInit {
   private lists: Array < List >;
+
+   
+  
   constructor(private router:Router, private http: HttpClient) { }
 
   ngOnInit() {
@@ -21,11 +26,15 @@ export class FormAddUserComponent implements OnInit {
     let obj  = new myList(name, phone, address, birthdate);
     let json = JSON.stringify(obj);
     let params = "json="+json;
-    let headers = new HttpHeaders().set('Content-Type','application/json');
+    let headers = new HttpHeaders().append('Content-Type','application/json');
     console.log(json);
     console.log(params)
 
-    this.http.post('http://localhost:8080/api/insertar', params, {headers: headers});
+     this.http.post<List>('http://localhost:8080/api/insertar', obj, {headers: headers})
+      .subscribe(
+        list => console.log('List: '),
+        err => console.log('Ops: ' + err.message)
+      );
     this.router.navigate(['index']);
   }
 
