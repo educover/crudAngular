@@ -1,10 +1,23 @@
 <app-superior-menu></app-superior-menu>
-    <table>
-        <tr *ngFor="let item of lists">
-        <td>{{item.id}}</td>
-        <td>{{item.nombre}}</td>
-        <td>{{item.telefono}}</td>
-        <td>{{item.direccion}}</td>
-        <td>{{item.fechaNacimiento}}</td>
-         </tr>
-</table>
+
+
+<div class="row" *ngFor="let item of lists">
+    <div class="col-2">
+        {{item.id}}
+    </div>
+    <div class="col-2">
+        {{item.nombre}}
+    </div>
+    <div class="col-2">
+        {{item.telefono}}
+    </div>
+    <div class="col-2">
+        {{item.direccion}}
+    </div>
+    <div class="col-3">
+        {{item.fechaNacimiento}}
+    </div>
+    <div class="col-1">
+            <i class="fas fa-user-minus" ></i>
+    </div>
+</div>

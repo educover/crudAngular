@@ -25,16 +25,15 @@ export class FormAddUserComponent implements OnInit {
   addUser(name, phone, address, birthdate){
     let obj  = new myList(name, phone, address, birthdate);
     let json = JSON.stringify(obj);
-    let params = "json="+json;
     let headers = new HttpHeaders().append('Content-Type','application/json');
     console.log(json);
-    console.log(params)
-
-     this.http.post<List>('http://localhost:8080/api/insertar', obj, {headers: headers})
+     this.http.post<List>('http://localhost:8080/api/insertar', json, {headers: headers})
       .subscribe(
         list => console.log('List: '),
         err => console.log('Ops: ' + err.message)
       );
+      obj = null;
+      json = null;
     this.router.navigate(['index']);
   }
 

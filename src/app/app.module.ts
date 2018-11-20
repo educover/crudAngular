@@ -7,13 +7,15 @@ import { ItemsComponent } from './items/items.component';
 import { SuperiorMenuComponent } from './superior-menu/superior-menu.component';
 import { FormAddUserComponent } from './form-add-user/form-add-user.component';
 import { routingModule } from './app.routing';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
     SuperiorMenuComponent,
-    FormAddUserComponent
+    FormAddUserComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
