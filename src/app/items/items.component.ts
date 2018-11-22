@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Router} from '@angular/router';
 import {List} from '../list.interface';
 
 @Component({
@@ -8,9 +9,9 @@ import {List} from '../list.interface';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  @Input () data: List;
+  private bool: Boolean=false;
   private lists: Array < List >;
-  constructor(private http: HttpClient){
+  constructor(private router:Router, private http: HttpClient){
     this.getLists();
   }
 
@@ -21,6 +22,22 @@ export class ItemsComponent implements OnInit {
 }
 
   ngOnInit() {
+  }
+
+  deleteItem(id){
+    let obj = {
+      id :id,
+    }
+    let json = JSON.stringify(obj);
+    let headers = new HttpHeaders().append("Access-Control-Allow-Origin","true");
+    this.http.post('http://localhost:8080/api/delete', json, {headers: headers})
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        err => console.log('Ops: ' + err.message)
+      );
+  this.getLists();
   }
 
 }

@@ -24,16 +24,13 @@ export class AdminComponent implements OnInit {
     console.log(json);
      this.http.post('http://localhost:8080/api/login', json, {headers: headers})
       .subscribe(
-        list => {
-          let lista = JSON.parse(JSON.stringify(list));
-          console.log(lista[0].pass)
-          console.log(obj.pass)
-          if(lista[0].pass == obj.pass){
-            console.log('parte admin')
-          } else{
-            console.log('pass incorrecta')
+        data => {
+          let datos = JSON.parse(JSON.stringify(data));
+          if(typeof(datos[0])=='object'){
+            console.log('admin autorizado')
+          }else{
+            console.log('datos incorrectos')
           }
-          
         },
         err => console.log('Ops: ' + err.message)
       );
