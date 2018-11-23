@@ -18,7 +18,7 @@
         {{item.fechaNacimiento}}
     </div>
     <div class="col-1">
-            <i class="fas fa-user-minus" (click)="deleteItem(item.id)"></i>
+            <i class="fas fa-user-minus" *ngIf="bool" (click)="deleteItem(item.id)"></i>
     </div>
 </div>
 </form>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {List} from '../list.interface';
+import {AdminService} from '../admin.service';
 
 @Component({
   selector: 'app-items',
@@ -9,9 +10,10 @@ import {List} from '../list.interface';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  private bool: Boolean=false;
+  private bool: Boolean;
   private lists: Array < List >;
-  constructor(private router:Router, private http: HttpClient){
+  constructor(private router:Router, private http: HttpClient, private adminService:AdminService){
+    this.bool = adminService.isCreated();
     this.getLists();
   }
 

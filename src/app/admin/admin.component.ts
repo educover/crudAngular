@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {AdminService} from '../admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private router:Router, private http: HttpClient) { }
+  constructor(private router:Router, private http: HttpClient, private adminService:AdminService) { }
 
   ngOnInit() {
   }
@@ -27,9 +28,11 @@ export class AdminComponent implements OnInit {
         data => {
           let datos = JSON.parse(JSON.stringify(data));
           if(typeof(datos[0])=='object'){
-            console.log('admin autorizado')
+            this.adminService.changeState();
+            this.router.navigate(['index']);
           }else{
             console.log('datos incorrectos')
+            this.router.navigate(['index']);
           }
         },
         err => console.log('Ops: ' + err.message)
