@@ -7,6 +7,7 @@ export class myList implements List{
     public direcction;
     public birthdate;
 
+
     constructor(name, phone, direcction, birthdate){
         this.name=name;
         this.phone=phone;

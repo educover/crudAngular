@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {List} from '../list.interface';
 import { myList } from '../myservice.service';
+import { ItemsComponent } from '../items/items.component';
+
 
 @Component({
   selector: 'app-form-add-user',
@@ -14,10 +16,10 @@ import { myList } from '../myservice.service';
 
 export class FormAddUserComponent implements OnInit {
   private lists: Array < List >;
-
    
   
-  constructor(private router:Router, private http: HttpClient) { }
+  constructor(private router:Router, private http: HttpClient) {
+   }
 
   ngOnInit() {
   }
